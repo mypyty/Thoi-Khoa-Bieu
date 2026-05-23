@@ -1,0 +1,528 @@
+/* ================================
+   RESET + BASE STYLE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f4f6fb;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Đảm bảo khi gõ tiếng Việt có dấu trong input/select không bị "lệch" font ở một số trình duyệt */
+input, select, textarea, button {
+  font-family: inherit;
+}
+
+/* ================================
+   HEADER
+================================ */
+.app-header {
+  background: #295bff;
+  color: white;
+  padding: 16px 24px;
+  font-size: 22px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.app-title {
+  letter-spacing: 0.5px;
+}
+
+/* ================================
+   MENU NGANG
+================================ */
+.top-menu {
+  display: flex;
+  gap: 10px;
+  padding: 12px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #d8deea;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.top-menu button {
+  padding: 9px 18px;
+  border: none;
+  background: #e9eefc;
+  color: #334;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.top-menu button:hover {
+  background: #d9e3ff;
+}
+
+.top-menu button:active {
+  background: #c6d4ff;
+}
+
+/* ================================
+   WORKSPACE
+================================ */
+.workspace {
+  padding: 20px;
+  flex: 1;
+}
+
+/* ================================
+   WELCOME BOX
+================================ */
+.welcome-box {
+  background: white;
+  padding: 32px 28px;
+  border-radius: 12px;
+  border: 1px solid #dbe2ef;
+  max-width: 480px;
+  margin: 50px auto;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.welcome-box h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.welcome-box p {
+  font-size: 15px;
+  color: #555;
+}
+
+/* ================================
+   CARD / MODULE BOX
+================================ */
+.card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #dce3f3;
+  padding: 22px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #333;
+}
+
+/* ================================
+   ACTION BAR
+================================ */
+.action-bar {
+  margin-bottom: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #c3cdea;
+  background: #f1f4ff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  background: #e2e9ff;
+}
+
+.btn.primary {
+  background: #295bff;
+  color: white;
+  border-color: #295bff;
+}
+
+.btn.primary:hover {
+  background: #1d47d6;
+}
+
+/* Nút menu đang chọn (đỏ nhạt) */
+.btn.nav-active{
+  background: #ffecec;
+  border-color: #ffb3b3;
+  color: #a40000;
+}
+
+.btn.nav-active:hover{
+  background: #ffe1e1;
+}
+
+/* ================================
+   TABLE
+================================ */
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 700px;
+}
+
+th, td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e3e8f3;
+  text-align: left;
+}
+
+th {
+  background: #eef2ff;
+  font-weight: bold;
+}
+
+tr:hover td {
+  background: #f6f8ff;
+}
+
+/* ================================
+   EXCEL-LIKE ROW SELECTION / INLINE EDIT
+================================ */
+tr.row-selected td{
+  /* đỏ nhạt để dễ nhận biết dòng đang chọn */
+  background: #ffecec !important;
+}
+
+tr.row-editing td{
+  background: #f0f7ff !important;
+}
+
+/* ================================
+   TIẾT CHUẨN: chọn nhiều ô (giống Excel)
+================================ */
+.tc-cell.tc-selected{
+  background: #fff1b8 !important;
+  outline: 2px solid #ffd666;
+  outline-offset: -2px;
+}
+
+.inline-edit-input{
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #cad5eb;
+  border-radius: 6px;
+  font-size: 13px;
+  background: #fff;
+}
+
+.inline-edit-select{
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #cad5eb;
+  border-radius: 6px;
+  font-size: 13px;
+  background: #fff;
+}
+
+/* ===== PCCM: click để copy, dblclick để mở listbox ===== */
+.pccm-dblsel-text{
+  display: block;
+  padding: 6px 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  min-height: 34px; /* gần bằng select/input */
+  line-height: 1.25;
+  cursor: text;
+  user-select: text;
+  background: #fff;
+}
+.pccm-dblsel-text:hover{
+  background: #f6f8ff;
+  border-color: #e3e8f3;
+}
+.pccm-dblsel-input{
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #cad5eb;
+  border-radius: 6px;
+  font-size: 13px;
+  background: #fff;
+  cursor: text;
+}
+.pccm-dblsel-input:hover{
+  background: #f6f8ff;
+  border-color: #e3e8f3;
+}
+.pccm-dblsel-select{
+  width: 100%;
+}
+
+/* ================================
+   FORM FIELDS
+================================ */
+.form-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.form-row label {
+  width: 190px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-row input,
+.form-row select {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #cad5eb;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ================================
+   MODAL
+================================ */
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-box {
+  background: white;
+  width: 520px;
+  max-width: 95%;
+  border-radius: 10px;
+  padding: 22px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ================================
+   PCCM CELLS
+================================ */
+.pccm-cell {
+  width: 120px;
+  padding: 6px;
+  border: 1px solid #ccd5ea;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+td.sticky-col,
+th.sticky-col {
+  position: sticky;
+  left: 0;
+  background: white;
+  z-index: 2;
+  box-shadow: 2px 0 4px rgba(0,0,0,0.05);
+}
+
+/* --- MODAL FIX (NO IFRAME) --------------------------------- */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;  /* <<< QUAN TRỌNG */
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    width: 420px;
+    max-width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.35);
+    animation: popupShow .2s ease-out;
+}
+
+@keyframes popupShow {
+    from { transform: scale(0.8); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+/* form-row đảm bảo không bị dính vào bảng */
+/* === MODAL FORM: canh đều khoảng cách + thẳng cột === */
+#modal-body{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;              /* khoảng cách dọc đều nhau */
+}
+
+#modal .form-row{
+  display: grid;
+  grid-template-columns: 190px 1fr; /* cột label | cột input */
+  column-gap: 12px;
+  align-items: center;
+  margin: 0;              /* bỏ margin-bottom để dùng gap cho đều */
+}
+
+#modal .form-row label{
+  width: auto;            /* bỏ width cố định của .form-row label */
+  margin: 0;
+  display: block;
+  white-space: nowrap;
+}
+
+#modal .form-row input,
+#modal .form-row select,
+#modal .form-row textarea{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#modal .modal-actions {
+    margin-top: 15px;
+    text-align: right;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+/* ===== PCCM compact (hiện nhiều môn hơn) ===== */
+.pccm-table th, .pccm-table td{ padding: 6px 6px; font-size: 12px; }
+.pccm-table th{ white-space: nowrap; }
+.pccm-cell{ width: 70px !important; padding: 3px !important; font-size: 12px !important; }
+
+/* ===== School Switcher (Facebook-like) ===== */
+.school-switcher{
+  background: rgba(255,255,255,.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+.school-switcher:hover{ background: rgba(255,255,255,.25); }
+.school-switcher .chevron{ font-size: 12px; }
+
+/* Khi đặt school switcher trong thanh menu (nền trắng) */
+.app-nav .school-switcher.nav-switcher{
+  background: #f1f4ff;
+  border: 1px solid #c3cdea;
+  color: #1f3cff;
+}
+.app-nav .school-switcher.nav-switcher:hover{
+  background: #e2e9ff;
+}
+.school-item{
+  padding:10px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.school-item .school-name{
+  flex: 1;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.school-item .school-del{
+  padding:4px 10px;
+  border-radius:6px;
+  border:1px solid #ffb3b3;
+  background:#ffecec;
+  color:#a40000;
+  cursor:pointer;
+  font-size:12px;
+}
+.school-item .school-edit{
+  padding:4px 10px;
+  border-radius:6px;
+  border:1px solid #b9c6ff;
+  background:#eef2ff;
+  color:#1f3cff;
+  cursor:pointer;
+  font-size:12px;
+}
+.school-item .school-edit:hover{ background:#e6ebff; }
+.school-item .school-del:hover{ background:#ffe1e1; }
+.school-item:hover{ background:#f1f4ff; }
+.school-item.active{ background:#e8edff; font-weight:800; }
+
+/* ===== PCCM header show name+code, compact without wrap ===== */
+.pccm-table{
+  table-layout: fixed;
+  width: 100%;
+}
+.pccm-table th, .pccm-table td{
+  padding: 6px 6px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.pccm-table th{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pccm-th{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05;
+}
+.pccm-th-name{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pccm-th-code{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+  opacity: .75;
+}
+/* ô nhập PCCM nhỏ gọn */
+.pccm-cell{
+  width: 78px !important;
+  padding: 3px !important;
+  font-size: 12px !important;
+}
+/* cột "Lớp" hẹp vừa */
+.pccm-table th.sticky-col, .pccm-table td.sticky-col{
+  width: 64px;
+}
+
+/* ===== PCCM compact & đẹp (1 dòng) ===== */
+.pccm-table{ table-layout: fixed; width: 100%; }
+.pccm-table th{ white-space: nowrap; overflow:hidden; text-overflow: ellipsis; }
+.pccm-th-inline{ display:inline-flex; gap:6px; align-items:baseline; max-width:100%; }
+.pccm-th-name{ overflow:hidden; text-overflow: ellipsis; }
+.pccm-th-code{ font-size:11px; opacity:.75; flex:0 0 auto; }
+.pccm-cell{ width: 68px !important; padding: 3px !important; }
